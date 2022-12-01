@@ -21,7 +21,6 @@ app.use('/',require('./routes/updateTemple'))
 app.use('/',require('./routes/updateNameplate'))
 
 // defining port
-const PORT = process.env.PORT || 3001;
 
 connectToDB();
 
@@ -33,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 // Starting Server on PORT
-app.listen(PORT, () => console.log("Server started on PORT Number: " + PORT + " 🟢"));
+app.listen(8080, () => console.log("Server started on PORT Number: " + 8080 + " 🟢"));
 
 // export main module
 module.exports = app

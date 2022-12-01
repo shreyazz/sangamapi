@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 router.post("/login", async (req, res) => {
     try {
-        const secretKey = process.env.JWT_SECRET;
+        const secretKey ="sangamAD";
       const { email, password } = req.body;
       if (!email || !password) {
         return res.status(422).json({ message: "Please fill all the data! 🔴" });
