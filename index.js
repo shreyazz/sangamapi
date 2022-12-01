@@ -1,56 +1,36 @@
-// const express = require("express");
-// const app = express();
-// require("dotenv").config();
-// const cors = require("cors");
-// const connectToDB = require("./db/conn");
+const express = require("express");
+require("dotenv").config();
+const cors = require("cors");
+const connectToDB = require("./db/conn");
 
-// // middlewares
-// app.use(cors());
-// app.use(express.json());
-// app.use('/',require('./routes/register'))
-// app.use('/',require('./routes/login'))
-// app.use('/',require('./routes/getUserByEmail'))
-// app.use('/',require('./routes/getAllUsers'))
-// app.use('/',require('./routes/addTemple'))
-// app.use('/',require('./routes/getTemples'))
-// app.use('/',require('./routes/getNamePlates'))
-// app.use('/',require('./routes/addNamePlates'))
-// app.use('/',require('./routes/deleteTemple'))
-// app.use('/',require('./routes/deleteNameplate'))
-// app.use('/',require('./routes/updateTemple'))
-// app.use('/',require('./routes/updateNameplate'))
+// middlewares
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/',require('./routes/register'))
+app.use('/',require('./routes/login'))
+app.use('/',require('./routes/getUserByEmail'))
+app.use('/',require('./routes/getAllUsers'))
+app.use('/',require('./routes/addTemple'))
+app.use('/',require('./routes/getTemples'))
+app.use('/',require('./routes/getNamePlates'))
+app.use('/',require('./routes/addNamePlates'))
+app.use('/',require('./routes/deleteTemple'))
+app.use('/',require('./routes/deleteNameplate'))
+app.use('/',require('./routes/updateTemple'))
+app.use('/',require('./routes/updateNameplate'))
 
-// // defining port
-// const PORT = process.env.PORT || 3001;
+// defining port
+const PORT = process.env.PORT || 3001;
 
-// connectToDB();
+connectToDB();
 
-// // setting up an empty GET Route
-// app.get("/", (req, res) => {
-//   res.json({
-//     message: "You've come to the right place... it's a GET request sent to the Sangam AD's API!!",
-//   });
-// });
+// setting up an empty GET Route
+app.get("/", (req, res) => {
+  res.json({
+    message: "You've come to the right place... it's a GET request sent to the Sangam AD's API!!",
+  });
+});
 
-// // Starting Server on PORT
-// app.listen(PORT, () => console.log("Server started on PORT Number: " + PORT + " 🟢"));
-
-const express = require('express')
-
-const app = express()
-const PORT = 4000
-
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
-
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
-
-app.get('/about', (req, res) => {
-  res.send('This is my about route..... ')
-})
-
-// Export the Express API
-module.exports = app
+// Starting Server on PORT
+app.listen(PORT, () => console.log("Server started on PORT Number: " + PORT + " 🟢"));
