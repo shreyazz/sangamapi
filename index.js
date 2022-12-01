@@ -23,7 +23,7 @@ app.use('/',require('./routes/updateNameplate'))
 // defining port
 const PORT = process.env.PORT || 3001;
 
-// connectToDB();
+connectToDB();
 
 // setting up an empty GET Route
 app.get("/", (req, res) => {
