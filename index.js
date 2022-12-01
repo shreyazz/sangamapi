@@ -35,4 +35,5 @@ app.get("/", (req, res) => {
 // Starting Server on PORT
 app.listen(PORT, () => console.log("Server started on PORT Number: " + PORT + " 🟢"));
 
+// export main module
 module.exports = app
