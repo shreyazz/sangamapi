@@ -19,6 +19,7 @@ app.use('/',require('./routes/deleteTemple'))
 app.use('/',require('./routes/deleteNameplate'))
 app.use('/',require('./routes/updateTemple'))
 app.use('/',require('./routes/updateNameplate'))
+app.use('/',require('./routes/getTempleById'))
 
 // defining port
 
