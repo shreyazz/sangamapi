@@ -13,6 +13,10 @@ const templeSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    images: {
+        type: [{type: String}],
+        required: false
+    },
 });
 
 const templeModel = mongoose.model("Temples", templeSchema);

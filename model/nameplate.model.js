@@ -13,6 +13,10 @@ const nameplateSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    images: {
+        type: [{type: String}],
+        required: false
+    },
 });
 
 const nameplateModel = mongoose.model("Nameplates", nameplateSchema);
