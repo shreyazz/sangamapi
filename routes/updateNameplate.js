@@ -3,14 +3,14 @@ const router = express.Router();
 const namePlateModel = require("../model/nameplate.model");
 router.post("/updateNameplate", async (req, res) => {
   try {
-    const { price, name, newName, imageLink, images } = req.body;
+    const { price, name, newName, imageLink, images, desc } = req.body;
     console.log(price, name, newName, imageLink, images);
     if (!name) {
       return res.status(422).json({ message: "Please fill all the name! 🔴" });
     }
     const newNp = await namePlateModel.findOneAndUpdate(
       { name: name },
-      { $set: { name: newName, price: price, imageLink: imageLink, images: images } },
+      { $set: { name: newName, price: price, imageLink: imageLink, images: images, desc: desc } },
       { new: true }
     );
     if (newTemple) {

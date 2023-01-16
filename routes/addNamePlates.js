@@ -4,12 +4,12 @@ const namePlateModel = require("../model/nameplate.model");
 
 router.post("/addNameplates", async (req, res) => {
   try {
-    const { name, price, imageLink, images } = req.body;
+    const { name, price, imageLink, images, desc } = req.body;
     if (!name || !price || !imageLink ) {
       return res.status(422).json({ message: "Please fill all the data! 🔴" });
     }
     const newNameplate = await namePlateModel.create({
-      name, price, imageLink, images
+      name, price, imageLink, images, desc
     });
     if (!newNameplate) {
       return res.json({
@@ -20,7 +20,7 @@ router.post("/addNameplates", async (req, res) => {
       .status(201)
       .json({
         message: "Nameplate Added! 🟢",
-        namePlateDetails: { name, price, imageLink, images },
+        namePlateDetails: { name, price, imageLink, images, desc },
       });
   } catch (error) {
     return res

@@ -3,14 +3,14 @@ const router = express.Router();
 const templeModel = require("../model/temple.model");
 router.post("/updateTemple", async (req, res) => {
   try {
-    const { price, name, newName, imageLink, images } = req.body;
+    const { price, name, newName, imageLink, images, desc } = req.body;
     console.log(price, name, newName, imageLink, images);
     if (!name) {
       return res.status(422).json({ message: "Please fill all the name! 🔴" });
     }
     const newTemple = await templeModel.findOneAndUpdate(
       { name: name },
-      { $set: { name: newName, price: price, imageLink: imageLink, images: images } },
+      { $set: { name: newName, price: price, imageLink: imageLink, images: images, desc: desc } },
       { new: true }
     );
     if (newTemple) {

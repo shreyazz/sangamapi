@@ -13,6 +13,10 @@ const nameplateSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    desc: {
+        type: String,
+        required: false
+    },
     images: {
         type: [{type: String}],
         required: false

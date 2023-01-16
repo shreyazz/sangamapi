@@ -4,12 +4,12 @@ const templeModel = require("../model/temple.model");
 
 router.post("/addTemples", async (req, res) => {
   try {
-    const { name, price, imageLink, images } = req.body;
+    const { name, price, imageLink, images, desc } = req.body;
     if (!name || !price || !imageLink ) {
       return res.status(422).json({ message: "Please fill all the data! 🔴" });
     }
     const newTemple = await templeModel.create({
-        name, price, imageLink, images
+        name, price, imageLink, images, desc
     });
     if (!newTemple) {
       return res.json({
@@ -20,7 +20,7 @@ router.post("/addTemples", async (req, res) => {
       .status(201)
       .json({
         message: "Temple Added! 🟢",
-        templeDetail: { name, price, imageLink, images},
+        templeDetail: { name, price, imageLink, images, desc},
       });
   } catch (error) {
     return res
